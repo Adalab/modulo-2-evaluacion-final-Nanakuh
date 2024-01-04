@@ -1,45 +1,36 @@
 'use strict';
-const characters = [
-  {
-    name: "Cenicienta",
-    imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
-  },
-  {
-    name: "Hercules",
-    imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
-  },
-  {
-    name: "Pinoccho",
-    imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
-  },
-  {
-    name: "Clavijo",
-    imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
-  }
-]
+
+const fetchDisneyCharacters = () => {
+  return fetch('https://api.disneyapi.dev/character?pageSize=50')
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.error('Network response was not ok');
+        return null;
+      }
+    });
+};
+
 
 const resultList = document.querySelector('#result-list');
 
-/*characters.map((character) => {
-  let cardContainer = document.createElement('div');
-  let characterImg = document.createElement('img');
-  let characterName = document.createElement('p');
-  characterName.textContent = character.name;
-  characterImg.src = character.imageUrl;
-  cardContainer.appendChild(characterImg);
-  cardContainer.appendChild(characterName);
-  resultList.appendChild(cardContainer);
-})*/
+fetchDisneyCharacters()
+  .then(characters => {
+    console.log(characters);
+    characters.data.map((character) => {
+      resultList.innerHTML += ` 
+                  <div>
+                      <img src=${character.imageUrl}/>
+                      <p>${character.name}</p>
+                  </div>
+              `;
+    });
+  })
+  .catch(error => console.log(error));
 
 
-characters.map((character) => {
-  resultList.innerHTML += ` 
-  <div>
-    <img src=${character.imageUrl}/>
-    <p>${character.name}</p>
-  </div>
-  `
-})
+
 
 
 
