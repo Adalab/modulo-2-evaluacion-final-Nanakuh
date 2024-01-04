@@ -11,6 +11,10 @@ const characters = [
   {
     name: "Pinoccho",
     imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
+  },
+  {
+    name: "Clavijo",
+    imageUrl: "https://static.wikia.nocookie.net/disney/images/d/d3/Vlcsnap-2015-05-06-23h04m15s601.png"
   }
 ]
 
