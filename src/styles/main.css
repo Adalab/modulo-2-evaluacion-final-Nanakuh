@@ -7,7 +7,7 @@ html {
   font-size: 62,5%;
 }
 .header {
-  height: 100px;
+  height: 200px;
   background-image: url("");
   background-repeat: no-repeat;
   background-size: auto;
@@ -26,4 +26,9 @@ html {
   color:white;
   margin-left: 10px;
   padding:5px;
+}
+.result-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
