@@ -13,8 +13,8 @@ const fetchDisneyCharacters = () => {
     });
 };
 
+const resultList = document.querySelector('.js_characters');
 
-const resultList = document.querySelector('.js_result_list');
 
 fetchDisneyCharacters()
   .then(characters => {
