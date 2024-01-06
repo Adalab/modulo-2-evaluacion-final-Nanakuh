@@ -13,14 +13,14 @@ const fetchDisneyCharacters = () => {
     });
 };
 
-const resultList = document.querySelector('.js_characters');
+const cardsResult = document.querySelector('.js_cardsResult');
 
 
 fetchDisneyCharacters()
   .then(characters => {
     console.log(characters);
     characters.data.map((character) => {
-      resultList.innerHTML += ` 
+      cardsResult.innerHTML += ` 
                   <div>
                       <img src=${character.imageUrl}/>
                       <p>${character.name}</p>
@@ -30,10 +30,22 @@ fetchDisneyCharacters()
   })
   .catch(error => console.log(error));
 
+//QUERY SELECTOR
+//const cardsResult = document.querySelector('.js_cardsResult');
 
 
 
 
+// FUNCIONES
+/*function renderOne(cardData) {
+  cardsResult.innerHTML += `
+  
+`
+}*/
+// FUNCIONES DE EVENTOS (HANDLER)
+// EVENTOS
+// CÓDIGO CUANDO CARGA LA PAGINA
+// renderOne();
 
 
 
