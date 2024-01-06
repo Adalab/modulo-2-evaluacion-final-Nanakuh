@@ -1,5 +1,6 @@
 'use strict';
 
+
 const fetchDisneyCharacters = () => {
   return fetch('https://api.disneyapi.dev/character?pageSize=50')
     .then(response => {
@@ -13,7 +14,7 @@ const fetchDisneyCharacters = () => {
 };
 
 
-const resultList = document.querySelector('#result-list');
+const resultList = document.querySelector('.js_result_list');
 
 fetchDisneyCharacters()
   .then(characters => {
@@ -28,6 +29,8 @@ fetchDisneyCharacters()
     });
   })
   .catch(error => console.log(error));
+
+
 
 
 

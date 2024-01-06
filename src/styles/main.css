@@ -24,6 +24,7 @@ html {
 .search-bar__button{ 
   background-color: blueviolet;
   color:white;
+  font-size: 15px;
   margin-left: 10px;
   padding:5px;
 }
@@ -31,4 +32,11 @@ html {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.footer{
+  background-color: blueviolet;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding: 7px;
 }
