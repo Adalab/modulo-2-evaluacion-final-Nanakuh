@@ -4,11 +4,11 @@ You can find this web application hosted on GitHub Pages at the following addres
 
 How to Use:
 
-Clone this repository.
+- Clone this repository.
 
-Install the dependencies: npm install.
+- Install the dependencies: npm install.
 
-Launch the project in development mode: npm run dev.
+- Launch the project in development mode: npm run dev.
 
 Search and get fun until you see your favorites characters.
 I hope you find this README useful.
