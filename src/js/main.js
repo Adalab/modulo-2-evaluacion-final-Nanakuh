@@ -18,19 +18,21 @@ const cardsResult = document.querySelector('.js_cardsResult');
 
 fetchDisneyCharacters()
   .then(characters => {
-    console.log(characters);
+    //console.log(characters);
     characters.data.map((character) => {
       cardsResult.innerHTML += ` 
                   <div class="card js_card">
                       <img src=${character.imageUrl}/>
-                      <p class="namecharacter">${character.name}</p>
+                      <p>${character.name}</p>
                   </div>
               `;
     });
   })
   .catch(error => console.log(error));
 
-
+//despues del bucle for irá esta fila: 
+const allCharactersLi = document.querySelectorAll('.js_card');
+console.log(allCharactersLi);
 
 //QUERY SELECTOR
 //const cardsResult = document.querySelector('.js_cardsResult');
@@ -47,6 +49,7 @@ fetchDisneyCharacters()
 }*/
 // FUNCIONES DE EVENTOS (HANDLER)
 // EVENTOS
+
 /*cardsResult.addEventListener('click', (event) => {
   console.log('Click');
 })*/

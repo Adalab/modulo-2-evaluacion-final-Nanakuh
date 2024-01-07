@@ -29,7 +29,9 @@ html {
   padding:5px;
 }
 h2{
-  color:blueviolet
+  color:blueviolet;
+  text-align: center;
+  padding-bottom: 10px;
 }
 .result-list{
   display: grid;
@@ -41,7 +43,11 @@ h2{
   flex-wrap: wrap;
 }
 .card{
-  width: 250px;
+  width: 230px;
+  text-align: center; 
+}
+.name{
+  text-align: center;
 }
 .footer{
   background-color: blueviolet;
