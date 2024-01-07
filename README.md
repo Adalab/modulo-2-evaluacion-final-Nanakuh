@@ -2,15 +2,15 @@ This project is the final evaluation of Module 2 of the course at Adalab. It con
 You can find this web application hosted on GitHub Pages at the following address:
 
 
-How to Use
+How to Use:
 Clone this repository.
-Install the dependencies: npm install
+Install the dependencies: npm install.
 Launch the project in development mode: npm run dev.
 
-Search and get fun until find your favourites characters.
+Search and get fun until you see your favorites characters.
 I hope you find this README useful.
 
-If you want to contact me for any suggestion, please, contact me.🙂
+If you have any suggestion, please, contact me.🙂
 
 
 
