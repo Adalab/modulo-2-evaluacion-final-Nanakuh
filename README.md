@@ -1,3 +1,24 @@
+This project is the final evaluation of Module 2 of the course at Adalab. It consists of a web application for choosing a Disney Character and establish some of them like your favourites. T
+You can find this web application hosted on GitHub Pages at the following address:
+
+
+How to Use
+Clone this repository.
+Install the dependencies: npm install
+Launch the project in development mode: npm run dev.
+
+Search and get fun until find your favourites characters.
+I hope you find this README useful.
+
+If you want to contact me for any suggestion, please, contact me.🙂
+
+
+
+Authors
+@Nanakuh
+
+
+
 ![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
 
 # Adalab web starter kit
