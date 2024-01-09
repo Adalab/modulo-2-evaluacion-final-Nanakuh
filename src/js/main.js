@@ -32,7 +32,7 @@ function createCharacterCard(character) {
     const characterId = parseInt(event.currentTarget.id);
     const favouriteIndex = favouritesList.findIndex((favouriteCharacterId) => favouriteCharacterId === characterId);
 
-    if (favouriteIndex !== -1) { // el personaje ya existe en el array de favoritos
+    if (favouriteIndex !== -1) { // si el personaje ya existe en el array de favoritos, lo quito
       favouritesList.splice(favouriteIndex, 1);
       card.classList.remove('card__favourite');
       const cardToRemove = document.getElementById(`f-${character._id}`); // Encuenta la tarj de favoritos del personaje a eliminar
@@ -40,7 +40,7 @@ function createCharacterCard(character) {
 
     }
 
-    else {
+    else { // si el personaje no existe en array de favoritos, lo añado
       favouritesList.push(characterId);
       card.classList.add('card__favourite');
 
