@@ -49,6 +49,9 @@ h2{
 .name{
   text-align: center;
 }
+.card__favourite{
+  border: 2px solid red;
+}
 .footer{
   background-color: blueviolet;
   color: white;
