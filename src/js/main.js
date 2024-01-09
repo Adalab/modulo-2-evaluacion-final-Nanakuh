@@ -22,8 +22,10 @@ function createCharacterCard(character) {
   `;
   card.addEventListener('click', function (event) {
     const characterId = parseInt(event.currentTarget.id);
-    const favouriteIndex = favouritesList.indexOf(characterId);
-    if (favouriteIndex) {
+    const favouriteIndex = favouritesList.findIndex((favouriteCharacterId) => favouriteCharacterId === characterId);
+
+    if (favouriteIndex !== -1) {
+
       favouritesList.splice(favouriteIndex, 1);
 
     }
@@ -31,9 +33,6 @@ function createCharacterCard(character) {
 
       favouritesList.push(characterId);
     }
-    console.log(favouritesList)
-
-
   });
   return card
 }
