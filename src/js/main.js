@@ -11,7 +11,8 @@ function createCharacterCard(character) {
 
   const card = document.createElement('div');
   card.classList.add('card', 'js_card');
-  let characterImage = character.imageUrl
+  card.setAttribute('id', character._id);
+  let characterImage = character.imageUrl;
   if (characterImage === undefined) {
     characterImage = "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney";
   }
@@ -20,7 +21,19 @@ function createCharacterCard(character) {
     <p>${character.name}</p>
   `;
   card.addEventListener('click', function (event) {
-    console.log('clavijo');
+    const characterId = parseInt(event.currentTarget.id);
+    const favouriteIndex = favouritesList.indexOf(characterId);
+    if (favouriteIndex) {
+      favouritesList.splice(favouriteIndex, 1);
+
+    }
+    else {
+
+      favouritesList.push(characterId);
+    }
+    console.log(favouritesList)
+
+
   });
   return card
 }
@@ -49,7 +62,7 @@ searchBarButton.addEventListener('click', (event) => {
       return response.json();
     })
     .then(characters => {
-           if (characters.data.length > 0) {
+      if (characters.data.length > 0) {
         characters.data.map((character) => {
           const characterCard = createCharacterCard(character);
 
