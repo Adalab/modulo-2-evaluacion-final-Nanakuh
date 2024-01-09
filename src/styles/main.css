@@ -8,9 +8,10 @@ html {
 }
 .header {
   height: 200px;
-  background-image: url("");
+  background-image: url("/images/castle.jpg");
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
+  background-position: center;
 }
 .search-bar{
   text-align: center;
@@ -45,6 +46,7 @@ h2{
 .card{
   width: 230px;
   text-align: center;
+  cursor: pointer;
 }
 .name{
   text-align: center;
