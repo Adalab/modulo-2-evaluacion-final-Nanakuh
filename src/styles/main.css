@@ -44,10 +44,13 @@ h2{
 }
 .card{
   width: 230px;
-  text-align: center; 
+  text-align: center;
 }
 .name{
   text-align: center;
+}
+.card__favourite{
+  border: 2px solid red;
 }
 .footer{
   background-color: blueviolet;

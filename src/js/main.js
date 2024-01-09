@@ -1,60 +1,118 @@
 'use strict';
 
 
-const fetchDisneyCharacters = () => {
-  return fetch('https://api.disneyapi.dev/character?pageSize=50')
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      } else {
-        console.error('Network response was not ok');
-        return null;
+const charactersContainer = document.querySelector('.js_cardsResult'); // 
+const favouritesContainer = document.querySelector('.favourites-cards');
+
+
+const searchBarInput = document.querySelector('.js_search-bar__input');
+const searchBarButton = document.querySelector('.js_search-bar__button');
+
+const favouritesList = [];
+
+
+function createCharacterCard(character) {
+
+  // Creo una ficha para el personaje seleccionado
+  const card = document.createElement('div');
+  card.classList.add('card', 'js_card');
+  card.setAttribute('id', character._id);
+  let characterImage = character.imageUrl;
+
+  if (characterImage === undefined) {
+    characterImage = "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney";// Si no hay foto pongo ésta
+  }
+
+  card.innerHTML = `
+    <img src="${characterImage}" alt="Character image">
+    <p>${character.name}</p>
+  `;
+  // Añado addEventListener (comportamiento de la ficha al pulsar)
+  card.addEventListener('click', function (event) {
+    const characterId = parseInt(event.currentTarget.id);
+    const favouriteIndex = favouritesList.findIndex((favouriteCharacterId) => favouriteCharacterId === characterId);
+
+    if (favouriteIndex !== -1) { // el personaje ya existe en el array de favoritos
+      favouritesList.splice(favouriteIndex, 1);
+      card.classList.remove('card__favourite');
+      const cardToRemove = document.getElementById(`f-${character._id}`); // Encuenta la tarj de favoritos del personaje a eliminar
+      favouritesContainer.removeChild(cardToRemove);
+
+    }
+
+    else {
+      favouritesList.push(characterId);
+      card.classList.add('card__favourite');
+
+      // Creo una ficha para el favorito seleccionado
+      const favouriteCard = document.createElement('div');
+      favouriteCard.classList.add('card', 'js_favourite_card');
+      favouriteCard.setAttribute('id', `f-${character._id}`);// id específico para el favorito distinto a la ficha original.
+      let characterImage = character.imageUrl;
+
+      if (characterImage === undefined) {
+        characterImage = "https://via.placeholder.com/210x295/ffffff/555555/?text=Disney";// Si no hay foto pongo ésta
       }
-    });
-};
 
-const cardsResult = document.querySelector('.js_cardsResult');
+      favouriteCard.innerHTML = `
+    <img src="${characterImage}" alt="Character image">
+    <p>${character.name}</p>
+  `;
+      //añado la ficha de favorito a la lista de favoritos
+      favouritesContainer.appendChild(favouriteCard)
 
+    }
+  });
+  return card
+}
 
-fetchDisneyCharacters()
+fetch('//api.disneyapi.dev/character?pageSize=50')
+  .then(response => {
+    return response.json();
+  })
   .then(characters => {
-    //console.log(characters);
     characters.data.map((character) => {
-      cardsResult.innerHTML += ` 
-                  <div class="card js_card">
-                      <img src=${character.imageUrl}/>
-                      <p>${character.name}</p>
-                  </div>
-              `;
+
+      const characterCard = createCharacterCard(character);
+
+      charactersContainer.appendChild(characterCard);
+
     });
   })
   .catch(error => console.log(error));
 
-//despues del bucle for irá esta fila: 
-const allCharactersLi = document.querySelectorAll('.js_card');
-console.log(allCharactersLi);
+searchBarButton.addEventListener('click', (event) => {
+  event.preventDefault()
+  const nameToSearch = searchBarInput.value;
+  charactersContainer.innerHTML = '';
+  favouritesContainer.innerHTML = '';
 
-//QUERY SELECTOR
-//const cardsResult = document.querySelector('.js_cardsResult');
+  fetch(`//api.disneyapi.dev/character?name=${nameToSearch}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(characters => {
+      if (characters.data.length > 0) {
+        characters.data.map((character) => {
+          const characterCard = createCharacterCard(character);
 
-//DATOS
+          charactersContainer.appendChild(characterCard);
+        });
+      }
+      else {
+        charactersContainer.innerHTML = ` 
+          <div>
+            <p>No se han encontrado resultados</p>
+          </div>
+        `;
+      }
+
+    })
+    .catch(error => console.log(error));
+
+})
 
 
-
-// FUNCIONES
-/*function renderOne(cardData) {
-  cardsResult.innerHTML += `
-
-`
-}*/
-// FUNCIONES DE EVENTOS (HANDLER)
-// EVENTOS
-
-/*cardsResult.addEventListener('click', (event) => {
-  console.log('Click');
-})*/
-// CÓDIGO CUANDO CARGA LA PAGINA
-// renderOne();
 
 
 
