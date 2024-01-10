@@ -13,13 +13,13 @@
 <body>
   <main>
     <header class="header">
+      <section class="search-bar">
+        <form action="#">
+          <input type="text" class="search-bar__input js_search-bar__input" placeholder="Example: Olu Mel">
+          <button class="search-bar__button js_search-bar__button">Search</button>
+        </form>
+      </section>
     </header>
-    <section class="search-bar">
-      <form action="#">
-        <input type="text" class="search-bar__input js_search-bar__input" placeholder="Example: Olu Mel">
-        <button class="search-bar__button js_search-bar__button">Search</button>
-      </form>
-    </section>
     <section class="result-list js_result_list" id="result-list">
       <section class="favourites">
         <h2>Favourites 🤩 </h2>
@@ -37,10 +37,8 @@
     </section>
   </main>
 
-  <footer>
-    <section class="footer">
-      <p>Sometimes the right path is not the easiest one. &copy; Adalab 2023 </p>
-    </section>
+  <footer class="footer">
+          <p>Sometimes the right path is not the easiest one. &copy; Adalab 2023 </p>  
   </footer>
 
   <script src="./js/main.js"></script>
