@@ -45,6 +45,8 @@ h2{
 }
 .card{
   width: 230px;
+  background-color: burlywood;
+  color:blue;
   text-align: center;
   cursor: pointer;
 }
@@ -52,7 +54,8 @@ h2{
   text-align: center;
 }
 .card__favourite{
-  border: 2px solid red;
+  background-color: blue;
+  color: burlywood;
 }
 .footer{
   background-color: blueviolet;
