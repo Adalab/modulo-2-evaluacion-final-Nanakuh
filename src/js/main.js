@@ -31,6 +31,7 @@ function createCharacterCard(character) {
   card.addEventListener('click', function (event) {
     const characterId = parseInt(event.currentTarget.id);
     const favouriteIndex = favouritesList.findIndex((favouriteCharacterId) => favouriteCharacterId === characterId);
+  
 
     if (favouriteIndex !== -1) { // si el personaje ya existe en el array de favoritos, lo quito
       favouritesList.splice(favouriteIndex, 1);
