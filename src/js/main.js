@@ -7,6 +7,7 @@ const favouritesContainer = document.querySelector('.favourites-cards');
 
 const searchBarInput = document.querySelector('.js_search-bar__input');
 const searchBarButton = document.querySelector('.js_search-bar__button');
+const logButton = document.querySelector('.js_log__button');
 
 const favouritesList = [];
 
@@ -26,6 +27,7 @@ function createCharacterCard(character) {
   card.innerHTML = `
     <img src="${characterImage}" alt="Character image">
     <p>${character.name}</p>
+    <p>${character.updatedAt}</p>
   `;
   // Añado addEventListener (comportamiento de la ficha al pulsar)
   card.addEventListener('click', function (event) {
@@ -111,7 +113,12 @@ searchBarButton.addEventListener('click', (event) => {
     .catch(error => console.log(error));
 
 })
-
+logButton.addEventListener('click', (event) => {
+  event.preventDefault()
+  favouritesList.map(element =>{
+    console.log('Tienes ',favouritesList.length,' favoritos')
+  })
+})
 
 
 
